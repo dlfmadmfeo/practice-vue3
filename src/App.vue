@@ -9,7 +9,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home1</RouterLink>
+        <RouterLink to="/">홈</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
