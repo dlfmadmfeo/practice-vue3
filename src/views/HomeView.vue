@@ -17,7 +17,7 @@ const CustomHeader = {
 
 <template>
   <div>
-    <h1>junhee</h1>
+    <h1>김약국</h1>
     {{ title }}
     <CustomButton v-model:title="title"></CustomButton>
   </div>
