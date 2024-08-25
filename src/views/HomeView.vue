@@ -17,9 +17,17 @@ const CustomHeader = {
 
 <template>
   <div>
-    <h1>김약국</h1>
-    {{ title }}
-    <CustomButton v-model:title="title"></CustomButton>
+    <h2>맛집 리스트</h2>
+    <ul>
+      <li>
+        <a href="https://place.map.kakao.com/12421976">아마 신촌본점</a>
+      </li>
+      <li>
+        <a href="https://place.map.kakao.com/690123759">룸익스케이프 인디고블루점 </a>
+      </li>
+    </ul>
+    <!-- {{ title }} -->
+    <!-- <CustomButton v-model:title="title"></CustomButton> -->
   </div>
   <!-- <main>
     <TheWelcome />
