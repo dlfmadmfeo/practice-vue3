@@ -9,5 +9,5 @@ const apiRequest = axios.create({
 })
 
 export const getTestResults = () => {
-    return apiRequest.get(`test`);
+    return apiRequest.get(`/girlfriend/love`);
 } 

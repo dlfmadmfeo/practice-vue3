@@ -16,12 +16,16 @@ const CustomHeader = {
 
 const test = ref("");
 
-function showTestResults() {
+function showTest() {
   getTestResults().then((response) => {
     console.log("response: ", response);
-    test.value = response.data;
+    if (response.status == 200) {
+      test.value = response.data;
+    }
 
-  }).catch((err) => console.error(err));
+  }).catch((err) => console.error(err)).finally(() => {
+
+  });
 }
 
 </script>
@@ -29,14 +33,18 @@ function showTestResults() {
 <template>
   <div>
     <p>{{ test }}</p>
-    <button @click="showTestResults">테스트 클릭</button>
+    <button @click="showTest">영채야 클릭해바</button>
+
     <h2>맛집 리스트</h2>
     <ul>
       <li>
-        <a href="https://place.map.kakao.com/12421976">아마 신촌본점</a>
+        <a href="https://place.map.kakao.com/838476128#review">강남쌀국수</a>
       </li>
       <li>
-        <a href="https://place.map.kakao.com/690123759">룸익스케이프 인디고블루점 </a>
+        <a href="https://place.map.kakao.com/1023111229#review">해탄(오징어)</a>
+      </li>
+      <li>
+        <a href="https://place.map.kakao.com/459642234">키이스케이프 메모리컴퍼니 </a>
       </li>
     </ul>
     <!-- {{ title }} -->
