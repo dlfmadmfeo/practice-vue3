@@ -2,6 +2,7 @@
 import { reactive, ref, toValue, watch, watchEffect } from 'vue';
 import TheWelcome from '../components/TheWelcome.vue'
 import CustomButton from './CustomButton.vue';
+import { getTestResults } from "@/api/index.ts";
 
 const input = ref<HTMLInputElement | null>(null);
 
@@ -13,10 +14,22 @@ const CustomHeader = {
   template: `<h1>wtf</h1>`
 }
 
+const test = ref("");
+
+function showTestResults() {
+  getTestResults().then((response) => {
+    console.log("response: ", response);
+    test.value = response.data;
+
+  }).catch((err) => console.error(err));
+}
+
 </script>
 
 <template>
   <div>
+    <p>{{ test }}</p>
+    <button @click="showTestResults">테스트 클릭</button>
     <h2>맛집 리스트</h2>
     <ul>
       <li>
