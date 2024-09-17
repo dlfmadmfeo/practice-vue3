@@ -2,7 +2,7 @@
 import { reactive, ref, toValue, watch, watchEffect } from 'vue';
 import TheWelcome from '../components/TheWelcome.vue'
 import CustomButton from './CustomButton.vue';
-import { getTestResults } from "@/api/index.ts";
+import { getTestResults } from "@/api/index";
 
 const input = ref<HTMLInputElement | null>(null);
 
