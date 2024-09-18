@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const baseURL = import.meta.env.MODE === 'development'
+    ? '/api'
+    : import.meta.env.VITE_APP_SERVER_IP;
+
 const apiRequest = axios.create({
-    baseURL: `/api`,
+    baseURL: baseURL,
     headers: {
         'Content-Type': 'application/json',
     },
