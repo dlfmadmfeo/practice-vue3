@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    // "target": "esnext",
+    // "module": "esnext",
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts"  // 이 부분 추가
+  ],
   "files": [],
   "references": [
     {
