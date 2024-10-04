@@ -40,9 +40,9 @@ function showTest() {
 }
 
 function openChat() {
-  const socketJS = new SockJS(`${import.meta.env.VITE_APP_SERVER_IP}/ws`);
+  const socketJS = new SockJS(`${import.meta.env.VITE_APP_SERVER_IP}.ngrok-free.app/ws`);
+  // const socketJS = new SockJS(`${import.meta.env.VITE_APP_SERVER_IP}/ws`);
   stompClient.value = Stomp.over(socketJS);
-  // console.log("stompClient.value: ", stompClient.value);
 
   stompClient.value?.connect(
     {},
