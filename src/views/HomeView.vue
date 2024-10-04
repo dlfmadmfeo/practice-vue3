@@ -4,6 +4,7 @@ import TheWelcome from '../components/TheWelcome.vue'
 import CustomButton from './CustomButton.vue';
 import { getTestResults } from "@/api/index";
 // import SockJS from "sockjs-client"; // Vue2에서는 에러발생
+// @ts-ignore
 import SockJS from 'sockjs-client/dist/sockjs.min.js' // Vue3용
 import { Stomp } from "@stomp/stompjs";
 
@@ -19,7 +20,7 @@ const CustomHeader = {
 
 const test = ref("");
 
-const stompClient = ref({});
+const stompClient = ref<any>(null);
 
 const message = ref("");
 const sentMessage = ref("");
