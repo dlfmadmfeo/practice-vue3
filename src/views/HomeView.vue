@@ -171,7 +171,7 @@ onMounted(() => {
 
 .messages>.item {
   background-color: white;
-  width: 500px;
+  max-width: 500px;
   min-height: 20px;
   border-radius: 6px;
   padding-left: 10px;
