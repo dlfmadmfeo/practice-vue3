@@ -40,9 +40,8 @@ function showTest() {
 }
 
 function openChat() {
-  // const socketJS = new SockJS(`ws://localhost:8080/ws`);
-  // const socketJS = new SockJS(`ws://http://43.203.215.72:8080/ws`);
-  const socketJS = new SockJS(`${import.meta.env.VITE_APP_SERVER_IP}/ws`);
+  const socketJS = new SockJS(`https://junhee92kr.com/ws`);
+  // const socketJS = new SockJS(`${import.meta.env.VITE_APP_SERVER_IP}/ws`);
   stompClient.value = Stomp.over(socketJS);
 
   stompClient.value?.connect(
