@@ -27,6 +27,8 @@ const sentMessage = ref("");
 
 const messages = ref([]);
 
+const isFirstTime = ref(true);
+
 function showTest() {
   getTestResults().then((response) => {
     console.log("response: ", response);
@@ -40,28 +42,35 @@ function showTest() {
 }
 
 function openChat() {
-  const socketJS = new SockJS(`https://junhee92kr.com/ws`);
+  const socketJS = new SockJS(`${import.meta.env.VITE_APP_FRONT_IP}/ws`);
   // const socketJS = new SockJS(`${import.meta.env.VITE_APP_SERVER_IP}/ws`);
   stompClient.value = Stomp.over(socketJS);
 
   stompClient.value?.connect(
     {},
     (frame: Object) => {
-      console.log("connected: ", frame);
+      console.log("연결됨: ", frame);
       stompClient.value?.subscribe("/topic/greetings", (message: any) => {
         console.log("메시지: ", JSON.parse(message.body));
         sentMessage.value = JSON.parse(message.body);
         messages.value = JSON.parse(message.body);
       });
+
+      sendMessage();
     },
   );
 }
 
 // 메시지를 서버로 전송하는 메서드
 function sendMessage() {
-  if (!message.value?.trim()) {
-    return;
+  if (!isFirstTime.value) {
+    if (!message.value?.trim()) {
+      return;
+    }
+  } else {
+    isFirstTime.value = false;
   }
+
   if (stompClient.value && stompClient.value.connected) {
     stompClient.value.send(
       '/app/hello', // 서버의 @MessageMapping 경로에 메시지 전송
