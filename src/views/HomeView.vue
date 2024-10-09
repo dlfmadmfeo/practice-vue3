@@ -54,6 +54,9 @@ function openChat() {
         console.log("메시지: ", JSON.parse(message.body));
         sentMessage.value = JSON.parse(message.body);
         messages.value = JSON.parse(message.body);
+        const contentElem = document.querySelector(".content");
+        const scrollHeight = contentElem?.scrollHeight || 0;
+        contentElem?.scrollTo({ top: scrollHeight, behavior: "smooth" });
       });
 
       sendMessage();
@@ -118,6 +121,12 @@ onMounted(() => {
   </div>
 </template>
 
+<style>
+:root {
+  --message-item-height: 40px;
+}
+</style>
+
 <style scoped>
 .clsss {
   /* background-attachment: fixed; */
@@ -180,18 +189,18 @@ onMounted(() => {
 .messages>.item {
   background-color: white;
   max-width: 500px;
-  min-height: 20px;
   border-radius: 6px;
   padding-left: 10px;
   font-size: 14px;
   margin: 10px;
-  min-height: 40px;
+  height: var(--message-item-height);
   display: flex;
   align-items: center;
 }
 
 .content {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: calc(100vh - 120px);
+  padding-bottom: calc(var(--message-item-height) + 10px);
 }
 </style>
