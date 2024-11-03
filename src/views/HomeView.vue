@@ -115,7 +115,8 @@ onMounted(() => {
       </div>
       <div class="send">
         <textarea placeholder="텍스트를 입력하세요." v-model="message" @keypress.enter.exact="sendMessage"></textarea>
-        <button class="send-button" @click="sendMessage">전송</button>
+        <!-- <button class="send-button" @click="sendMessage">전송</button> -->
+        <button class="send-button" @click="showTest">API테스트</button>
       </div>
     </div>
   </div>
